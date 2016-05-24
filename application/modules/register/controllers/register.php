@@ -69,7 +69,7 @@ class Register extends MX_Controller
         $this->form_validation->set_error_delimiters('<img src="' . pageURL . 'application/images/icons/exclamation.png" data-tip="', '" />');
 
         // Check if everything went correct
-        if($this->form_validation->run() || !count($_POST) || strcasecmp($this->input->post('register_captcha'), $this->captcha->getValue())
+        if($this->form_validation->run() == FALSE || !count($_POST) || strcasecmp($this->input->post('register_captcha'), $this->captcha->getValue())
         || !$this->email_check($this->input->post('register_email')) || !$this->username_check($this->input->post('register_username')))
         {
             $fields = array('username', 'email', 'password', 'password_confirm', 'tell', 'birthdayday',
